@@ -44,7 +44,9 @@ vidChew3 was born out of a desire to translate vidChew2 to Python.  This was pri
 As with vidChew2, vidChew3 only supports a single audio/subtitle track.  I started working on this in an effort to migrate my AVC/h264 TV & movie collections to HEVC/h265 without the use of Handbrake.  It was obviously written specifically with 1080p/720p AVC (h264) and HEVC (h265) in mind and likely needs some changes to adequately support other codecs.  The config options are based on ffmpeg/ffprobe codec syntax, so it's important to respect it or else the script will likely just break.
 
 I strongly recommend testing on short clips before committing to hours (or years) of encoding before realizing you weren't happy with your settings ;P
+
 https://trac.ffmpeg.org/wiki/Seeking#Cuttingsmallsections
+
 ffmpeg -ss 00:15:00.0 -i "<in>" -map 0 -c copy -t 00:00:10.0 "<out>"
 
 As stated, this script could no doubt be signficantly improved.  If such things are up your alley, you have my love and feel free.  I'd be quite thrilled if you reached out and shared your work. ;]
