@@ -47,7 +47,7 @@ I strongly recommend testing on short clips before committing to hours (or years
 
 https://trac.ffmpeg.org/wiki/Seeking#Cuttingsmallsections
 
-ffmpeg -ss 00:15:00.0 -i "<in>" -map 0 -c copy -t 00:00:10.0 "<out>"
+ffmpeg -ss 00:15:00.0 -i "[in]" -map 0 -c copy -t 00:00:10.0 "[out]"
 
 As stated, this script could no doubt be signficantly improved.  If such things are up your alley, you have my love and feel free.  I'd be quite thrilled if you reached out and shared your work. ;]
 
