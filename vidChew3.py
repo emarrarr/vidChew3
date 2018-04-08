@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-ver = "0327181510"
+ver = "0408182041"
 
 ################################################################################################################
 ###
@@ -112,7 +112,7 @@ ver = "0327181510"
 ###
 ### Version History (date +"%m%d%y%0k%M" -u)
 ###
-### + 0327181510 - \m/rr
+### + 0408182041 - \m/rr
 ###      Initial release
 ###
 ################################################################################################################
@@ -788,14 +788,20 @@ for root, subdirs, files in os.walk(inputFolder):
 			if bfVideoWidth > maxVidWidth or bfVideoHeight > maxVidHeight:
 				doDownscale = True
 				scaleOpt = "-vf scale=" + str(maxVidWidth) + ":" + str(maxVidHeight)
+				targVidWidth = maxVidWidth
+				targVidHeight = maxVidHeight
 				if force16:
 					if bfVideoDisplayAr != "16:9":
 						doForce16 = True
 						scaleOpt = scaleOpt + ",setdar=dar=16/9"
 			else:
 				scaleOpt = ""
+				targVidWidth = bfVideoWidth
+				targVidHeight = bfVideoHeight
 		else:
 			scaleOpt = ""
+			targVidWidth = bfVideoWidth
+			targVidHeight = bfVideoHeight
 			
 		### Audio wasn't found
 		
@@ -897,9 +903,9 @@ for root, subdirs, files in os.walk(inputFolder):
 		
 		### Construct destination filename/path
 			
-		if bfVideoWidth == 1920:
+		if targVidWidth == 1920:
 			tagRes = "1080p"
-		elif bfVideoWidth == 1280:
+		elif targVidHeight == 1280:
 			tagRes = "720p"
 		else:
 			tagRes = str(bfVideoHeight) + "p"
@@ -1123,10 +1129,3 @@ logger.info("!! duration: %s" % runDuration)
 logger.newline()
 logger.info("!! vidChew3 done! ;D")
 logger.newline()
-			
-			
-		
-			
-
-
-			
