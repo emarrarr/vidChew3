@@ -19,7 +19,7 @@ destDir = ""
 fileTag = "-myTag"
 
 ### Filenames containing a string in filenameSkipArray will be skipped
-filenameSkipArray = [fileTag, 'vidChew']
+filenameSkipArray = [fileTag]
 
 ### Desired language for audio/subtitle track in ISO 639-2 format
 ### https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
