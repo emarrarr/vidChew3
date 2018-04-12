@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-ver = "0408182041"
+ver = "0412181217"
 
 ################################################################################################################
 ###
@@ -112,7 +112,7 @@ ver = "0408182041"
 ###
 ### Version History (date +"%m%d%y%0k%M" -u)
 ###
-### + 0408182041 - \m/rr
+### + 0412181217 - \m/rr
 ###      Initial release
 ###
 ################################################################################################################
@@ -309,6 +309,15 @@ if audioReenc and audioDownmix:
 
 for root, subdirs, files in os.walk(inputFolder):
 	for filename in sorted(files):
+		
+		silentSkipArray = ['vidChew3']
+		doSilentSkip = False
+		
+		for silentSkip in silentSkipArray:
+			if silentSkip in filename:
+				if debug: logger.info("** Filename contains \"%s\" (silent skip)!" % (silentSkip))
+				doSilentSkip = True
+		if doSilentSkip: continue
 		
 		fullInputFile = os.path.join(root, filename)
 		inputAbsPath = os.path.abspath(fullInputFile)
